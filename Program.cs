@@ -12,7 +12,6 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(envConnectionString ?? connectionString);
 });
 
-
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -25,6 +24,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    // app.UseSwagger();
 }
 
 app.UseHttpsRedirection();

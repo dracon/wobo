@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using woboapi.Models;
 
 namespace woboapi.Controllers;
 

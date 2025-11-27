@@ -1,4 +1,4 @@
-namespace woboapi;
+namespace woboapi.Models;
 
 public class WeatherForecast
 {
