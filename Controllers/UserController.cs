@@ -1,42 +1,70 @@
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using woboapi.Models;
 
-namespace MyApp.Namespace
+namespace woboapi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UserController : ControllerBase
     {
-        // GET: api/<UserController>
+        private readonly IUserService _userService;
+
+        public UserController(IUserService userService)
+        {
+            _userService = userService;
+        }
+
+        // GET: api/User
         [HttpGet]
-        public IEnumerable<string> Get()
+        public ActionResult<List<UserModel>> GetAllUsers()
         {
-            return new string[] { "value1", "value2" };
+            var users = _userService.GetAllUsers();
+            return Ok(users);
         }
 
-        // GET api/<UserController>/5
+        // GET api/User/{id}
         [HttpGet("{id}")]
-        public string Get(int id)
+        public ActionResult<UserModel> GetUser(Guid id)
         {
-            return "value";
+            var user = _userService.GetUser(id);
+            return Ok(user);
         }
 
-        // POST api/<UserController>
+        // POST api/User
         [HttpPost]
-        public void Post([FromBody] string value)
+        [AllowAnonymous]
+        public ActionResult CreateUser([FromBody] UserModel user)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            _userService.CreateUser(user);
+            return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
         }
 
-        // PUT api/<UserController>/5
+        // PUT api/User/{id}
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult UpdateUser(Guid id, [FromBody] UserModel user)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            _userService.UpdateUser(id, user);
+            return NoContent();
         }
 
-        // DELETE api/<UserController>/5
+        // DELETE api/User/{id}
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult DeleteUser(Guid id)
         {
+            _userService.DeleteUser(id);
+            return NoContent();
         }
     }
 }

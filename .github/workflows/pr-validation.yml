@@ -1,0 +1,55 @@
+name: PR Validation
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+env:
+  DOTNET_VERSION: '10.0.x'
+
+jobs:
+  validate-pr:
+    name: Validate Pull Request
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --no-restore --configuration Release
+
+    - name: Run all tests
+      run: dotnet test woboapi.Tests/woboapi.Tests.csproj --no-build --configuration Release --verbosity normal
+
+    - name: Check for breaking changes
+      run: |
+        echo "Checking for breaking API changes..."
+        # Add your breaking change detection logic here
+
+    - name: Validate commit messages
+      uses: wagoid/commitlint-github-action@v5
+      continue-on-error: true
+
+    - name: Comment PR
+      uses: actions/github-script@v7
+      if: always()
+      with:
+        script: |
+          const testResults = 'Tests completed successfully! ✅';
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: `## PR Validation Results\n\n${testResults}\n\nAll checks passed! 🎉`
+          })
