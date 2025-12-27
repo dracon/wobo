@@ -32,22 +32,15 @@ jobs:
     - name: Build
       run: dotnet build --no-restore --configuration Release
 
-    - name: Run Unit Tests
-      run: dotnet test woboapi.Tests/woboapi.Tests.csproj --no-build --configuration Release --filter "FullyQualifiedName~UserServiceTests" --verbosity normal --logger "trx"
-
-    - name: Run Integration Tests
-      run: dotnet test woboapi.Tests/woboapi.Tests.csproj --no-build --configuration Release --filter "FullyQualifiedName~IntegrationTests" --verbosity normal --logger "trx"
-
-    - name: List test results
-      if: always()
-      run: find . -name "*.trx" -type f
+    - name: Run All Tests
+      run: dotnet test woboapi.Tests/woboapi.Tests.csproj --configuration Release --verbosity normal --logger trx --results-directory ./TestResults
 
     - name: Publish Test Results
       uses: EnricoMi/publish-unit-test-result-action@v2
       if: always()
       with:
         files: |
-          **/*.trx
+          TestResults/**/*.trx
 
   code-quality:
     name: Code Quality Checks
