@@ -53,22 +53,22 @@
       },
       "Microsoft.EntityFrameworkCore.Relational": {
         "type": "Direct",
-        "requested": "[10.0.1, )",
-        "resolved": "10.0.1",
-        "contentHash": "8/5kYGwKN6wtc89QqcPTOZDAJSMX8MzKCf5OmYjIfAHWTfsUEpGKYrdtfNk4X36rQ0BiU3n57Y4rbtnerzJN0Q==",
+        "requested": "[10.0.4, )",
+        "resolved": "10.0.4",
+        "contentHash": "DOTjTHy93W3TwpMLM4SCm0n57Sc0Jj3+m2S6LSTstKyBB34eT1UouaMS19mpWwvtj42+sRiEjA3+rOTNoNzXFQ==",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "10.0.1"
+          "Microsoft.EntityFrameworkCore": "10.0.4"
         }
       },
       "Npgsql.EntityFrameworkCore.PostgreSQL": {
         "type": "Direct",
-        "requested": "[10.0.0, )",
-        "resolved": "10.0.0",
-        "contentHash": "E2+uSWxSB8LdsUVwPaqRWOcGOP92biry2JEwc0KJMdLJF+aZdczeIdEXVwEyv4nSVMQJH0o8tLhyAMiR6VF0lw==",
+        "requested": "[10.0.1, )",
+        "resolved": "10.0.1",
+        "contentHash": "P6EwH0Q4xkaA264iNZDqCPhWt8pscfUGxXazDQg4noBfqjoOlk4hKWfvBjF9ZX3R/9JybRmmJfmxr2iBMj0EpA==",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "[10.0.0, 11.0.0)",
-          "Microsoft.EntityFrameworkCore.Relational": "[10.0.0, 11.0.0)",
-          "Npgsql": "10.0.0"
+          "Microsoft.EntityFrameworkCore": "[10.0.4, 11.0.0)",
+          "Microsoft.EntityFrameworkCore.Relational": "[10.0.4, 11.0.0)",
+          "Npgsql": "10.0.2"
         }
       },
       "Scalar.AspNetCore": {
@@ -197,22 +197,22 @@
       },
       "Microsoft.EntityFrameworkCore": {
         "type": "Transitive",
-        "resolved": "10.0.1",
-        "contentHash": "QsXvZ8G7Dl7x09rlq0b2dye7QqfReMq8yGdl7Mffi3Ip+aTa+JUMixBZ4lhCs9Ygjz2e9tiUACstxI+ADkwaFg==",
+        "resolved": "10.0.4",
+        "contentHash": "kzTsfFK2GCytp6DDTfQOmxPU4gbGdrIlP7PxrxF3ESNLtfXrC8BoUVZENBN2WORlZPAD7CVX6AYIglgkpXQooA==",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "10.0.1",
-          "Microsoft.EntityFrameworkCore.Analyzers": "10.0.1"
+          "Microsoft.EntityFrameworkCore.Abstractions": "10.0.4",
+          "Microsoft.EntityFrameworkCore.Analyzers": "10.0.4"
         }
       },
       "Microsoft.EntityFrameworkCore.Abstractions": {
         "type": "Transitive",
-        "resolved": "10.0.1",
-        "contentHash": "sp6Uq8Oc3RVGtmxLS3ZgzVeFHrpLNymsMudoeqRmB9pRTWgvq2S903sF5OnaaZmh4Bz6kpq7FwofE+DOhKJYvg=="
+        "resolved": "10.0.4",
+        "contentHash": "qDcJqCfN1XYyX0ID/Hd9/kQTRvlia8S+Yuwyl9uFhBIKnOCbl9WMdGQCzbZUKbkpkfvf3P9CDdXsnxHyE3O0Aw=="
       },
       "Microsoft.EntityFrameworkCore.Analyzers": {
         "type": "Transitive",
-        "resolved": "10.0.1",
-        "contentHash": "Ug2lxkiz1bpnxQF/xdswLl5EBA6sAG2ig5nMjmtpQZO0C88ZnvUkbpH2vQq+8ultIRmvp5Ec2jndLGRMPjW0Ew=="
+        "resolved": "10.0.4",
+        "contentHash": "pQeMHCyD3yTtCEGnHV4VsgKUvrESo3MR5mnh8sgQ1hWYmI1YFsUutDowBIxkobeWRtaRmBqQAtF7XQFW6FWuNA=="
       },
       "Microsoft.Extensions.DependencyModel": {
         "type": "Transitive",
@@ -290,8 +290,8 @@
       },
       "Npgsql": {
         "type": "Transitive",
-        "resolved": "10.0.0",
-        "contentHash": "xZAYhPOU2rUIFpV48xsqhCx9vXs6Y+0jX2LCoSEfDFYMw9jtAOUk3iQsCnDLrFIv9NT3JGMihn7nnuZsPKqJmA=="
+        "resolved": "10.0.2",
+        "contentHash": "q5RfBI+wywJSFUNDE1L4ZbHEHCFTblo8Uf6A6oe4feOUFYiUQXyAf9GBh5qEZpvJaHiEbpBPkQumjEhXCJxdrg=="
       },
       "System.CodeDom": {
         "type": "Transitive",
